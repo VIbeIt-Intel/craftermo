@@ -678,43 +678,87 @@ h3 {
 
 /* ——— Footer ——— */
 .site-footer {
-  border-top: 1px solid rgba(232, 220, 200, 0.08);
-  padding: 2.5rem 0 2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  padding: 3.4rem 0 2.2rem;
+  background:
+    linear-gradient(180deg, rgba(212, 168, 75, 0.06), transparent 28%),
+    #0a0704;
+  border-top: 1px solid rgba(212, 168, 75, 0.22);
 }
 
 .footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.5rem;
-  align-items: end;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1.1rem;
 }
 
-.footer-brand img {
-  width: min(280px, 70vw);
-  margin-bottom: 0.75rem;
-}
-
-.footer-brand p {
+.footer-mark {
   margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  max-width: 28rem;
+  font-family: var(--font-carve);
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #e7cb78;
 }
 
-.footer-meta {
-  text-align: right;
-  font-size: 0.85rem;
-  color: var(--muted);
+.footer-mark em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #f3ead4;
 }
 
-.footer-meta a {
+.footer-quote {
+  margin: 0;
+  max-width: 22rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--sand);
+  line-height: 1.4;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 14rem));
+  gap: 1.25rem 2rem;
+  width: min(40rem, 100%);
+  margin-top: 0.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(212, 168, 75, 0.2);
+}
+
+.footer-links a {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--sand-soft);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.footer-links span {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.footer-links a:hover {
   color: var(--gold-soft);
 }
 
-.footer-meta a:hover {
-  text-decoration: underline;
+.footer-fine {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* ——— Mobile ——— */
@@ -777,8 +821,9 @@ h3 {
     justify-content: center;
   }
 
-  .footer-meta {
-    text-align: left;
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
   }
 
   .hero {
