@@ -87,7 +87,7 @@ button,
   overflow: hidden;
   min-height: var(--nav-h);
   background-color: #000;
-  background-image: url("../images/header-bar.png?v=2");
+  background-image: url("../images/header-bar.jpg");
   background-size: auto 100%;
   background-position: left center;
   background-repeat: no-repeat;
@@ -107,28 +107,12 @@ button,
 }
 
 .brand {
-  display: flex;
-  align-items: stretch;
+  display: block;
   flex-shrink: 0;
+  width: min(58vw, 16.5rem);
   height: var(--nav-h);
   position: relative;
   z-index: 3;
-}
-
-.brand-banner {
-  display: block;
-  height: var(--nav-h);
-  width: auto;
-  max-width: none;
-  object-fit: fill;
-  object-position: left center;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  /* Crest is painted in the header bar so the photo can run on into black */
-  opacity: 0;
-  -webkit-mask-image: none;
-  mask-image: none;
 }
 
 .nav-links {
@@ -782,13 +766,6 @@ h3 {
     min-height: 280px;
   }
 
-  .brand-banner {
-    max-width: min(58vw, 280px);
-    object-fit: cover;
-    object-position: left center;
-  }
-
-  .nav-toggle {
     display: grid;
     place-items: center;
     align-self: center;

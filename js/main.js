@@ -23,13 +23,24 @@
     let timer;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const loadSlide = (el) => {
+      if (el && el.dataset.src) {
+        el.src = el.dataset.src;
+        el.removeAttribute("data-src");
+      }
+    };
+
     const show = (next) => {
       slides[index].classList.remove("is-active");
       dotsWrap.children[index]?.classList.remove("is-active");
       index = (next + slides.length) % slides.length;
+      loadSlide(slides[index]);
+      loadSlide(slides[(index + 1) % slides.length]);
       slides[index].classList.add("is-active");
       dotsWrap.children[index]?.classList.add("is-active");
     };
+
+    loadSlide(slides[1]);
 
     slides.forEach((img, i) => {
       const btn = document.createElement("button");
