@@ -978,6 +978,48 @@ body.lightbox-open .site-header {
   color: var(--muted);
 }
 
+.footer-vibeit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(212, 168, 75, 0.16);
+}
+
+.footer-vibeit img {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.45rem;
+  object-fit: cover;
+}
+
+.footer-vibeit span {
+  display: grid;
+  gap: 0.12rem;
+  text-align: left;
+}
+
+.footer-vibeit b {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.footer-vibeit em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--sand-soft);
+}
+
+.footer-vibeit:hover em {
+  color: var(--gold-soft);
+}
+
 /* ——— Mobile ——— */
 @media (max-width: 900px) {
   .split,
