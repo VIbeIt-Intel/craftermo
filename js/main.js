@@ -3,16 +3,26 @@
   const links = document.querySelector(".nav-links");
 
   if (toggle && links) {
-    toggle.addEventListener("click", () => {
-      const open = links.classList.toggle("open");
+    const veil = document.createElement("button");
+    veil.type = "button";
+    veil.className = "nav-veil";
+    veil.setAttribute("aria-label", "Close menu");
+    document.body.appendChild(veil);
+
+    const setNav = (open) => {
+      links.classList.toggle("open", open);
+      document.body.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+
+    toggle.addEventListener("click", () => {
+      setNav(!links.classList.contains("open"));
     });
+    veil.addEventListener("click", () => setNav(false));
 
     links.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        links.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", () => setNav(false));
     });
   }
 
@@ -110,6 +120,9 @@
 
     const open = (i) => {
       show(i);
+      links?.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      toggle?.setAttribute("aria-expanded", "false");
       box.classList.add("is-open");
       document.body.classList.add("lightbox-open");
       box.querySelector(".lightbox-close").focus();

@@ -217,6 +217,7 @@ button,
   margin: auto;
   background: currentColor;
   position: relative;
+  transition: transform 0.2s var(--ease), top 0.2s var(--ease), background 0.2s var(--ease);
 }
 
 .nav-toggle span::before,
@@ -228,6 +229,40 @@ button,
 
 .nav-toggle span::before { top: -5px; }
 .nav-toggle span::after { top: 5px; }
+
+.nav-toggle[aria-expanded="true"] span {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.nav-veil {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  border: 0;
+  padding: 0;
+  background: rgba(8, 5, 3, 0.62);
+  cursor: pointer;
+}
+
+body.nav-open .nav-veil {
+  display: block;
+}
+
+body.nav-open,
+body.lightbox-open {
+  overflow: hidden;
+}
 
 /* ——— Type & buttons ——— */
 .eyebrow {
@@ -586,11 +621,11 @@ h3 {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 80;
+  z-index: 200;
   display: none;
   place-items: center;
   padding: 1.25rem 4.5rem 1.75rem;
-  background: rgba(8, 5, 3, 0.94);
+  background: #0c0805;
 }
 
 .lightbox.is-open {
@@ -674,8 +709,8 @@ h3 {
   color: var(--gold-soft);
 }
 
-body.lightbox-open {
-  overflow: hidden;
+body.lightbox-open .site-header {
+  z-index: 1;
 }
 
 /* ——— Contact ——— */
@@ -953,7 +988,18 @@ body.lightbox-open {
   }
 
   .lightbox {
-    padding: 4.2rem 0.85rem 1.25rem;
+    padding: 4.5rem 0.9rem 5.2rem;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: min(58vh, 520px);
+  }
+
+  .lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
   }
 
   .lightbox-prev,
@@ -961,6 +1007,7 @@ body.lightbox-open {
     top: auto;
     bottom: 1rem;
     transform: none;
+    z-index: 2;
   }
 
   .lightbox-prev { left: 0.85rem; }
@@ -982,18 +1029,21 @@ body.lightbox-open {
   }
 
   .nav-links {
-    position: fixed;
-    inset: var(--nav-h) 0 auto 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 5;
     display: none;
     flex-direction: column;
     align-items: stretch;
-    padding: 1rem 1.25rem 1.25rem;
+    padding: 0.6rem 1.25rem 1.35rem;
     background:
       linear-gradient(180deg, rgba(255, 220, 160, 0.04), transparent 30%),
       linear-gradient(180deg, var(--crest-wood-lit), var(--crest-wood) 40%, var(--crest-wood-deep));
     border-bottom: 1px solid rgba(90, 62, 36, 0.85);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-    gap: 0.35rem;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+    gap: 0.15rem;
   }
 
   .nav-links.open {
