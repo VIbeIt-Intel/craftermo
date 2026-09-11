@@ -1576,8 +1576,7 @@ body.lightbox-open .site-header {
   .lightbox-next { right: 0.85rem; }
 
   .site-header {
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
   }
 
   .nav-toggle {
