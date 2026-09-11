@@ -256,10 +256,11 @@ body.lightbox-open {
 
 /* ——— Type & buttons ——— */
 .eyebrow {
-  margin: 0 0 0.75rem;
-  font-size: 0.75rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--font-carve);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
 }
