@@ -124,12 +124,14 @@
       document.body.classList.remove("nav-open");
       toggle?.setAttribute("aria-expanded", "false");
       box.classList.add("is-open");
+      document.documentElement.classList.add("lightbox-open");
       document.body.classList.add("lightbox-open");
       box.querySelector(".lightbox-close").focus();
     };
 
     const close = () => {
       box.classList.remove("is-open");
+      document.documentElement.classList.remove("lightbox-open");
       document.body.classList.remove("lightbox-open");
       items[current]?.piece.focus();
     };
