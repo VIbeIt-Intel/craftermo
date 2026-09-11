@@ -979,44 +979,47 @@ body.lightbox-open .site-header {
 }
 
 .footer-vibeit {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-top: 1.1rem;
-  padding-top: 1.15rem;
-  border-top: 1px solid rgba(212, 168, 75, 0.16);
-}
-
-.footer-vibeit img {
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 0.45rem;
-  object-fit: cover;
-}
-
-.footer-vibeit span {
   display: grid;
-  gap: 0.12rem;
-  text-align: left;
+  justify-items: center;
+  gap: 0;
+  margin-top: 1.35rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(212, 168, 75, 0.16);
+  text-decoration: none;
 }
 
-.footer-vibeit b {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.footer-vibeit em {
+.footer-vibeit-sign {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.08rem;
   font-weight: 500;
+  letter-spacing: 0.06em;
   color: var(--sand-soft);
 }
 
-.footer-vibeit:hover em {
+.footer-vibeit img {
+  width: 7.4rem;
+  height: 7.4rem;
+  margin: -0.55rem 0 -0.35rem;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.footer-vibeit-cta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.42rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.footer-vibeit:hover .footer-vibeit-sign {
+  color: #f3ead4;
+}
+
+.footer-vibeit:hover .footer-vibeit-cta {
   color: var(--gold-soft);
 }
 
