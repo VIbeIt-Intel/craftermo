@@ -92,10 +92,17 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--sand-soft);
@@ -170,6 +177,8 @@ button,
 
 .wrap {
   width: min(1120px, calc(100% - 2.5rem));
+  max-width: 100%;
+  min-width: 0;
   margin-inline: auto;
 }
 
@@ -522,6 +531,7 @@ h3 {
   margin-inline: auto;
   padding: 5.5rem 0 4.2rem;
   max-width: 40rem;
+  min-width: 0;
 }
 
 .hero .eyebrow {
@@ -585,7 +595,7 @@ h3 {
   grid-template-columns: 0.95fr 1.05fr;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1101px) {
   .split.reverse .split-copy {
     order: 2;
   }
@@ -600,7 +610,7 @@ h3 {
   order: -1;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1101px) {
   .shop-split {
     grid-template-columns: 1.08fr 0.92fr;
     grid-template-areas:
@@ -683,7 +693,7 @@ h3 {
 /* ——— Work gallery ——— */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -1433,7 +1443,7 @@ body.lightbox-open .site-header {
 }
 
 /* ——— Mobile ——— */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .eyebrow,
   .btn,
   .nav-links a,
@@ -1480,10 +1490,12 @@ body.lightbox-open .site-header {
 
   .home-gallery .piece,
   .home-gallery .piece.hero-piece,
+  .home-gallery .piece.hero-side,
   .home-gallery .piece.half {
     height: auto;
     min-height: 0;
     aspect-ratio: 4 / 3;
+    grid-row: auto;
   }
 
   .home-gallery .piece.portrait {
@@ -1564,7 +1576,8 @@ body.lightbox-open .site-header {
   .lightbox-next { right: 0.85rem; }
 
   .site-header {
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .nav-toggle {
