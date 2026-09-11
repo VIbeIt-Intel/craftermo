@@ -62,6 +62,98 @@
     }
   }
 
+  const galleryPieces = [...document.querySelectorAll(".work-gallery .piece")];
+  if (galleryPieces.length) {
+    const items = galleryPieces.map((piece) => {
+      const img = piece.querySelector("img");
+      return {
+        piece,
+        src: img.getAttribute("src"),
+        alt: img.getAttribute("alt") || "",
+        title: piece.querySelector("h3")?.textContent || "",
+        note: piece.querySelector(".piece-meta p")?.textContent || ""
+      };
+    });
+
+    const box = document.createElement("div");
+    box.className = "lightbox";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "Photograph");
+    box.innerHTML = `
+      <button class="lightbox-close" type="button" aria-label="Close photograph">Close</button>
+      <button class="lightbox-prev" type="button" aria-label="Previous photograph">&lsaquo;</button>
+      <figure>
+        <img alt="" />
+        <figcaption>
+          <strong></strong>
+          <span></span>
+        </figcaption>
+      </figure>
+      <button class="lightbox-next" type="button" aria-label="Next photograph">&rsaquo;</button>
+    `;
+    document.body.appendChild(box);
+
+    const big = box.querySelector("img");
+    const titleEl = box.querySelector("strong");
+    const noteEl = box.querySelector("span");
+    let current = 0;
+
+    const show = (i) => {
+      current = (i + items.length) % items.length;
+      const item = items[current];
+      big.src = item.src;
+      big.alt = item.alt;
+      titleEl.textContent = item.title;
+      noteEl.textContent = item.note;
+    };
+
+    const open = (i) => {
+      show(i);
+      box.classList.add("is-open");
+      document.body.classList.add("lightbox-open");
+      box.querySelector(".lightbox-close").focus();
+    };
+
+    const close = () => {
+      box.classList.remove("is-open");
+      document.body.classList.remove("lightbox-open");
+      items[current]?.piece.focus();
+    };
+
+    items.forEach((item, i) => {
+      item.piece.setAttribute("role", "button");
+      item.piece.tabIndex = 0;
+      item.piece.setAttribute("aria-label", `View ${item.title}`);
+      item.piece.addEventListener("click", () => open(i));
+      item.piece.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open(i);
+        }
+      });
+    });
+
+    box.querySelector(".lightbox-close").addEventListener("click", close);
+    box.querySelector(".lightbox-prev").addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(current - 1);
+    });
+    box.querySelector(".lightbox-next").addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(current + 1);
+    });
+    box.addEventListener("click", (e) => {
+      if (e.target === box) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!box.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") show(current - 1);
+      if (e.key === "ArrowRight") show(current + 1);
+    });
+  }
+
   const reveals = document.querySelectorAll(".reveal");
   if (!reveals.length || !("IntersectionObserver" in window)) {
     reveals.forEach((el) => el.classList.add("in"));
