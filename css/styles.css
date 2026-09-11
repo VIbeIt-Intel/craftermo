@@ -57,6 +57,29 @@ body {
   word-spacing: 0.4em;
 }
 
+.ws {
+  display: inline-block;
+  width: 0.32em;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+
+.eyebrow .ws,
+.btn .ws,
+.nav-links a .ws,
+.nav-cta .ws,
+.piece-meta h3 .ws,
+.lightbox figcaption strong .ws,
+.lightbox-close .ws,
+.reach-way strong .ws,
+.form label .ws,
+.footer-mark .ws,
+.footer-links span .ws,
+.footer-fine .ws {
+  width: 0.55em;
+}
+
 img {
   max-width: 100%;
   display: block;

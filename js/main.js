@@ -1,4 +1,41 @@
 (() => {
+  const restoreWordGaps = (root = document.body) => {
+    if (!root) return;
+    const skip = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "CODE"]);
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || skip.has(parent.tagName) || parent.classList.contains("ws")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const text = node.nodeValue;
+        if (!text || !/\S/.test(text) || !text.includes(" ")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((node) => {
+      const frag = document.createDocumentFragment();
+      node.nodeValue.split(" ").forEach((part, i) => {
+        if (i) {
+          const gap = document.createElement("span");
+          gap.className = "ws";
+          gap.textContent = "\u00a0";
+          frag.appendChild(gap);
+        }
+        if (part) frag.appendChild(document.createTextNode(part));
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  };
+
+  restoreWordGaps();
+
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
 
@@ -116,6 +153,8 @@
       big.alt = item.alt;
       titleEl.textContent = item.title;
       noteEl.textContent = item.note;
+      restoreWordGaps(titleEl);
+      restoreWordGaps(noteEl);
     };
 
     const open = (i) => {
