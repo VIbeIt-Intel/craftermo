@@ -868,6 +868,19 @@ body.lightbox-open .site-header {
   margin-top: 0.7rem;
 }
 
+.legacy-crest {
+  background: #140e0a;
+  border: 1px solid rgba(201, 164, 90, 0.22);
+}
+
+.legacy-crest img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+}
+
 /* ——— Reveal ——— */
 .reveal {
   opacity: 0;
