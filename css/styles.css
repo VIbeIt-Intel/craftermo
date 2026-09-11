@@ -38,6 +38,23 @@ body {
   background: #0c0907;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  word-spacing: 0.25em;
+}
+
+/* Google Fonts on some Chromium/Android builds draw a zero-width space. */
+.eyebrow,
+.btn,
+.nav-links a,
+.nav-cta,
+.piece-meta h3,
+.lightbox figcaption strong,
+.lightbox-close,
+.reach-way strong,
+.form label,
+.footer-mark,
+.footer-links span,
+.footer-fine {
+  word-spacing: 0.4em;
 }
 
 img {
