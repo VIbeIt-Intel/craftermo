@@ -683,6 +683,10 @@ h3 {
   transform: none;
 }
 
+.work-gallery .piece.portrait {
+  aspect-ratio: 3 / 4;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1115,6 +1119,10 @@ body.lightbox-open .site-header {
     aspect-ratio: 4 / 3;
   }
 
+  .work-gallery .piece.portrait {
+    aspect-ratio: 3 / 4;
+  }
+
   .piece-meta {
     left: 50%;
     right: auto;
@@ -1236,6 +1244,10 @@ body.lightbox-open .site-header {
   .work-gallery .piece.hero-side {
     min-height: 0;
     aspect-ratio: 4 / 3;
+  }
+
+  .work-gallery .piece.portrait {
+    aspect-ratio: 3 / 4;
   }
 }
 
