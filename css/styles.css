@@ -960,6 +960,38 @@ body.lightbox-open .site-header {
   gap: 1.1rem;
 }
 
+.footer-mark,
+.footer-quote {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 36%,
+      rgba(255, 250, 230, 0.15) 44%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 214, 118, 0.7) 54%,
+      rgba(232, 184, 90, 0.2) 60%,
+      transparent 68%,
+      transparent 100%
+    ),
+    linear-gradient(
+      185deg,
+      #f6e7b0 0%,
+      #e7cb78 22%,
+      #c9a45a 46%,
+      #8a6424 58%,
+      #d4a84b 76%,
+      #f0d78a 100%
+    );
+  background-size: 260% 100%, 100% 140%;
+  background-position: 180% 0, 50% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: coin-gleam 6.4s cubic-bezier(0.4, 0.05, 0.15, 1) infinite;
+}
+
 .footer-mark {
   margin: 0;
   font-family: var(--font-carve);
@@ -967,7 +999,7 @@ body.lightbox-open .site-header {
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #e7cb78;
+  filter: drop-shadow(0 1px 0 rgba(40, 24, 8, 0.55));
 }
 
 .footer-mark em {
@@ -976,7 +1008,15 @@ body.lightbox-open .site-header {
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: #f3ead4;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: inherit;
+  filter: none;
 }
 
 .footer-quote {
@@ -985,8 +1025,20 @@ body.lightbox-open .site-header {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-style: italic;
-  color: var(--sand);
   line-height: 1.4;
+  animation-delay: 0.7s;
+}
+
+@keyframes coin-gleam {
+  0%, 12% {
+    background-position: 180% 0, 50% 0;
+  }
+  42% {
+    background-position: -80% 0, 50% 40%;
+  }
+  100% {
+    background-position: -80% 0, 50% 0;
+  }
 }
 
 .footer-links {
