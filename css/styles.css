@@ -547,6 +547,13 @@ h3 {
   grid-column: span 4;
   overflow: hidden;
   min-height: 300px;
+  cursor: zoom-in;
+  touch-action: manipulation;
+}
+
+.piece:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 .piece.wide { grid-column: span 8; min-height: 380px; }

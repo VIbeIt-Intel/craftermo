@@ -72,7 +72,7 @@
     }
   }
 
-  const galleryPieces = [...document.querySelectorAll(".work-gallery .piece")];
+  const galleryPieces = [...document.querySelectorAll(".gallery .piece")];
   if (galleryPieces.length) {
     const items = galleryPieces.map((piece) => {
       const img = piece.querySelector("img");
