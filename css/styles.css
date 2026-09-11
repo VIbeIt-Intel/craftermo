@@ -481,8 +481,10 @@ h3 {
   grid-template-columns: 0.95fr 1.05fr;
 }
 
-.split.reverse .split-copy {
-  order: 2;
+@media (min-width: 901px) {
+  .split.reverse .split-copy {
+    order: 2;
+  }
 }
 
 .frame {
@@ -1255,8 +1257,8 @@ body.lightbox-open .site-header {
     grid-template-columns: 1fr 1fr;
   }
 
-  .split.reverse .split-copy {
-    order: 0;
+  .split > .split-copy {
+    order: -1;
   }
 
   .piece,
