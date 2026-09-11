@@ -601,6 +601,33 @@ h3 {
 .piece.tall { grid-column: span 4; min-height: 420px; }
 .piece.hero-piece { grid-column: span 7; min-height: 440px; }
 .piece.hero-side { grid-column: span 5; min-height: 440px; }
+.piece.half { grid-column: span 6; min-height: 380px; }
+
+.home-gallery .piece {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.home-gallery .piece.hero-piece,
+.home-gallery .piece.hero-side {
+  grid-row: 1;
+  aspect-ratio: auto;
+  height: 28rem;
+  min-height: 28rem;
+}
+
+.home-gallery .piece.hero-piece img,
+.home-gallery .piece.hero-side img {
+  height: 100%;
+}
+
+.home-gallery .piece.half {
+  aspect-ratio: 4 / 3;
+}
+
+.home-gallery .piece.portrait img {
+  object-position: center 18%;
+}
 
 .piece img {
   width: 100%;
@@ -1319,9 +1346,22 @@ body.lightbox-open .site-header {
   .piece.wide,
   .piece.tall,
   .piece.hero-piece,
-  .piece.hero-side {
+  .piece.hero-side,
+  .piece.half {
     grid-column: span 12;
     min-height: 280px;
+  }
+
+  .home-gallery .piece,
+  .home-gallery .piece.hero-piece,
+  .home-gallery .piece.half {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .home-gallery .piece.portrait {
+    aspect-ratio: 3 / 4;
   }
 
   .work-gallery {
