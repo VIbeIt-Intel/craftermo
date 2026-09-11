@@ -1030,7 +1030,7 @@ body.lightbox-open .site-header {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: coin-gleam 6.4s cubic-bezier(0.4, 0.05, 0.15, 1) infinite;
+  animation: coin-gleam 12.5s cubic-bezier(0.4, 0.05, 0.15, 1) infinite;
 }
 
 .footer-mark {
@@ -1067,14 +1067,14 @@ body.lightbox-open .site-header {
   font-size: 1.35rem;
   font-style: italic;
   line-height: 1.4;
-  animation-delay: 0.7s;
+  animation-delay: 1.2s;
 }
 
 @keyframes coin-gleam {
-  0%, 12% {
+  0%, 28% {
     background-position: 180% 0, 50% 0;
   }
-  42% {
+  62% {
     background-position: -80% 0, 50% 40%;
   }
   100% {
