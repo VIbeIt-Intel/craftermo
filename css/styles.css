@@ -1149,10 +1149,22 @@ body.lightbox-open .site-header {
 .footer-vibeit-cta {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.42rem;
+  font-size: 1.28rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--gold);
+  letter-spacing: 0.03em;
+  background-image: linear-gradient(
+    105deg,
+    #c45cff 0%,
+    #7a5cff 22%,
+    #2ad6ff 52%,
+    #ff9a3c 86%,
+    #ff7a2e 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(42, 214, 255, 0.18));
 }
 
 .footer-vibeit:hover .footer-vibeit-sign {
@@ -1160,7 +1172,7 @@ body.lightbox-open .site-header {
 }
 
 .footer-vibeit:hover .footer-vibeit-cta {
-  color: var(--gold-soft);
+  filter: drop-shadow(0 0 14px rgba(196, 92, 255, 0.28));
 }
 
 /* ——— Mobile ——— */
