@@ -991,9 +991,9 @@ body.lightbox-open .site-header {
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 14rem));
-  gap: 1.25rem 2rem;
-  width: min(40rem, 100%);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  width: min(52rem, 100%);
   margin-top: 0.6rem;
   padding-top: 1.4rem;
   border-top: 1px solid rgba(212, 168, 75, 0.2);
