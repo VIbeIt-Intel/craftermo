@@ -725,7 +725,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.15rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .work-gallery .piece,
@@ -739,29 +739,29 @@ h3 {
   grid-column: auto;
   min-height: 0;
   height: auto;
-  aspect-ratio: auto;
+  aspect-ratio: 4 / 3;
   background: transparent;
 }
 
 .work-gallery .piece img {
-  position: static;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  object-fit: unset;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
 }
 
 .work-gallery .piece.portrait {
-  aspect-ratio: auto;
+  aspect-ratio: 3 / 4;
 }
 
 .work-gallery .piece.portrait img {
   object-position: center;
 }
 
-.work-gallery .piece:hover img {
-  transform: none;
+.work-gallery .piece.focus-low img {
+  object-position: center 82%;
 }
 
 .lightbox {
@@ -1385,11 +1385,11 @@ body.lightbox-open .site-header {
   .work-gallery .piece.hero-side {
     margin: 0;
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .work-gallery .piece.portrait {
-    aspect-ratio: auto;
+    aspect-ratio: 3 / 4;
   }
 
   .piece-meta {
@@ -1521,11 +1521,11 @@ body.lightbox-open .site-header {
   .work-gallery .piece.hero-piece,
   .work-gallery .piece.hero-side {
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .work-gallery .piece.portrait {
-    aspect-ratio: auto;
+    aspect-ratio: 3 / 4;
   }
 }
 
