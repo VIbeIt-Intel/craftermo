@@ -643,10 +643,9 @@ h3 {
 }
 
 .work-gallery {
-  display: block;
-  column-count: 2;
-  column-gap: 1.15rem;
-  column-fill: balance;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
 }
 
 .work-gallery .piece,
@@ -655,29 +654,22 @@ h3 {
 .work-gallery .piece.hero-piece,
 .work-gallery .piece.hero-side {
   display: block;
-  width: 100%;
-  margin: 0 0 1.15rem;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
+  width: auto;
+  margin: 0;
   grid-column: auto;
   min-height: 0;
   height: auto;
-  aspect-ratio: auto;
+  aspect-ratio: 4 / 3;
   background: #100b07;
 }
 
-.work-gallery .piece.reveal {
-  transform: none;
-}
-
 .work-gallery .piece img {
-  position: relative;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
-  display: block;
+  object-position: center;
 }
 
 .work-gallery .piece:hover img {
@@ -1098,8 +1090,8 @@ body.lightbox-open .site-header {
   }
 
   .work-gallery {
-    column-count: 2;
-    column-gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
   }
 
   .work-gallery .piece,
@@ -1107,9 +1099,9 @@ body.lightbox-open .site-header {
   .work-gallery .piece.tall,
   .work-gallery .piece.hero-piece,
   .work-gallery .piece.hero-side {
-    margin-bottom: 0.9rem;
+    margin: 0;
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .piece-meta {
@@ -1219,7 +1211,7 @@ body.lightbox-open .site-header {
 
 @media (max-width: 640px) {
   .work-gallery {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 
   .work-gallery .piece,
@@ -1228,7 +1220,7 @@ body.lightbox-open .site-header {
   .work-gallery .piece.hero-piece,
   .work-gallery .piece.hero-side {
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
   }
 }
 
