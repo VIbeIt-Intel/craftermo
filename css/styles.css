@@ -624,7 +624,7 @@ h3 {
 }
 
 .split.reverse {
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 1.05fr 0.95fr;
 }
 
 @media (min-width: 1101px) {
@@ -1237,13 +1237,27 @@ body.lightbox-open .site-header {
   object-position: center;
 }
 
+.home-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.85rem;
+}
+
+.home-actions .btn {
+  width: 100%;
+  min-height: 3.15rem;
+  letter-spacing: 0.12em;
+  word-spacing: 0.08em;
+}
+
 .burn-sign {
   display: grid;
   grid-template-columns: 7.2rem minmax(0, 1fr);
   gap: 1rem 1.35rem;
   align-items: center;
   width: min(38rem, 100%);
-  margin: 2.4rem auto 0;
+  margin: 2.5rem 0 0;
   text-align: left;
 }
 
@@ -1705,6 +1719,26 @@ body.lightbox-open .site-header {
 
   .hero {
     min-height: 85vh;
+  }
+
+  .home-actions {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .burn-sign {
+    grid-template-columns: 5.6rem minmax(0, 1fr);
+    gap: 0.85rem 1rem;
+    margin-top: 2.1rem;
+  }
+
+  .burn-sign img {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+
+  .burn-sign-copy {
+    font-size: 1.08rem;
   }
 }
 
