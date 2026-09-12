@@ -50,7 +50,9 @@
       dotsWrap.children[index]?.classList.add("is-active");
     };
 
-    loadSlide(slides[1]);
+    const prefetchNext = () => loadSlide(slides[1]);
+    if (document.readyState === "complete") prefetchNext();
+    else window.addEventListener("load", prefetchNext, { once: true });
 
     slides.forEach((img, i) => {
       const btn = document.createElement("button");

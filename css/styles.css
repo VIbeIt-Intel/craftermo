@@ -217,6 +217,8 @@ button,
   background-size: 260% 100%;
   background-position: 180% 0;
   background-repeat: no-repeat;
+  contain: paint;
+  transform: translateZ(0);
   animation: header-coin-gleam 9s linear infinite;
 }
 
