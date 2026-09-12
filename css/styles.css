@@ -871,7 +871,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .work-gallery .piece,
@@ -887,19 +887,23 @@ h3 {
   grid-column: auto;
   min-height: 0;
   height: auto;
-  aspect-ratio: auto;
+  aspect-ratio: 4 / 3;
   background: #100b08;
   border: 1px solid rgba(201, 164, 90, 0.18);
 }
 
 .work-gallery .piece img {
-  position: static;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  object-fit: unset;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
   display: block;
+}
+
+.work-gallery .piece.portrait img {
+  object-position: center 28%;
 }
 
 .work-gallery .piece:hover img {
@@ -1573,7 +1577,7 @@ body.lightbox-open .site-header {
   .work-gallery .piece.half {
     margin: 0;
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .piece-meta {
@@ -1770,7 +1774,7 @@ body.lightbox-open .site-header {
   .work-gallery .piece.portrait,
   .work-gallery .piece.half {
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
   }
 }
 
