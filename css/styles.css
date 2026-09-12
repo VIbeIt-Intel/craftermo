@@ -1250,6 +1250,10 @@ body.lightbox-open .site-header {
   margin-top: 1.85rem;
 }
 
+.burn-sign + .home-actions {
+  margin-top: 2.5rem;
+}
+
 .home-actions .btn {
   width: 100%;
   min-height: 3.15rem;
