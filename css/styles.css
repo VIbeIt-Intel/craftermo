@@ -208,17 +208,23 @@ button,
     105deg,
     transparent 0%,
     transparent 38%,
-    rgba(255, 250, 230, 0.16) 45%,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 214, 118, 0.28) 54%,
+    rgba(255, 250, 230, 0.22) 45%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 214, 118, 0.5) 54%,
     transparent 62%,
     transparent 100%
   );
   background-size: 260% 100%;
   background-position: 180% 0;
   background-repeat: no-repeat;
-  contain: paint;
-  transform: translateZ(0);
+  -webkit-mask-image: url("../images/header-text-mask.png");
+  mask-image: url("../images/header-text-mask.png");
+  -webkit-mask-size: auto 100%;
+  mask-size: auto 100%;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
   animation: header-coin-gleam 9s linear infinite;
 }
 
