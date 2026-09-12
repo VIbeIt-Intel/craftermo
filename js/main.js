@@ -171,7 +171,18 @@
     });
   }
 
-  const reveals = document.querySelectorAll(".reveal");
+  const reveals = [...document.querySelectorAll(".reveal")];
+  const inView = (el) => {
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    return rect.bottom > 0 && rect.top < vh;
+  };
+
+  reveals.forEach((el) => {
+    if (inView(el)) el.classList.add("in");
+  });
+  document.documentElement.classList.add("js");
+
   if (!reveals.length || !("IntersectionObserver" in window)) {
     reveals.forEach((el) => el.classList.add("in"));
     return;
@@ -186,8 +197,10 @@
         }
       });
     },
-    { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
   );
 
-  reveals.forEach((el) => io.observe(el));
+  reveals.forEach((el) => {
+    if (!el.classList.contains("in")) io.observe(el);
+  });
 })();

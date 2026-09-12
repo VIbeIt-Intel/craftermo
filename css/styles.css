@@ -1302,7 +1302,8 @@ body.lightbox-open .site-header {
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
 }
 
-.js .reveal.in {
+.js .reveal.in,
+.js .page-hero .reveal {
   opacity: 1;
   transform: none;
 }
