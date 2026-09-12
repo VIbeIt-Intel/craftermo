@@ -887,17 +887,18 @@ h3 {
   grid-column: auto;
   min-height: 0;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   background: #100b08;
 }
 
 .work-gallery .piece img {
-  position: absolute;
-  inset: 0;
+  position: static;
+  inset: auto;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  object-fit: unset;
   object-position: center;
+  display: block;
 }
 
 .work-gallery .piece:hover img {
@@ -1565,7 +1566,7 @@ body.lightbox-open .site-header {
   .work-gallery .piece.half {
     margin: 0;
     min-height: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
   }
 
   .piece-meta {
@@ -1756,7 +1757,7 @@ body.lightbox-open .site-header {
   .work-gallery .piece.portrait,
   .work-gallery .piece.half {
     min-height: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
   }
 }
 
