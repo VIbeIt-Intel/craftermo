@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://craftermo.co.za/sitemap.txt
 Sitemap: https://craftermo.co.za/sitemap.xml
