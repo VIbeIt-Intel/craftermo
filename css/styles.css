@@ -495,6 +495,11 @@ h3 {
 .hero-media {
   position: absolute;
   inset: 0;
+  background: #0c0907 url("../images/lodge-dining-day.jpg") center 46% / cover no-repeat;
+}
+
+.hero-media:has(.ready) {
+  background-image: none;
 }
 
 .hero-slides {
@@ -512,12 +517,15 @@ h3 {
   object-position: center 46%;
   opacity: 0;
   filter: brightness(1.04) contrast(1.06) saturate(1.04);
-  transition: opacity 1.15s ease;
 }
 
 .hero-slides img.is-active,
 .hero-media > img {
   opacity: 1;
+}
+
+.hero-slides.ready img {
+  transition: opacity 1.15s ease;
 }
 
 .hero-media::after {

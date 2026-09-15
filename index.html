@@ -22,8 +22,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="images/lodge-dining-day.jpg" fetchpriority="high" />
   <link rel="preload" as="image" href="images/header-bar.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="css/styles.css?v=20260912p" />
+  <link rel="stylesheet" href="css/styles.css?v=20260915a" />
   <style>
     html, body { max-width: 100%; overflow-x: hidden; }
     @media (max-width: 1100px), (hover: none) and (pointer: coarse) {
@@ -91,7 +92,7 @@
     <section class="hero">
       <div class="hero-media">
         <div class="hero-slides">
-          <img class="is-active" src="images/lodge-dining-day.jpg" alt="Custom lodge dining table under a thatched lapa, built by Crafter Mo" width="1280" height="720" fetchpriority="high" decoding="async" />
+          <img class="is-active" src="images/lodge-dining-day.jpg" alt="Custom lodge dining table under a thatched lapa, built by Crafter Mo" width="1280" height="720" fetchpriority="high" decoding="sync" />
           <img data-src="images/lodge-dining-night.jpg" alt="Lodge dining room at night with timber tables and stone fireplace" width="1280" height="960" decoding="async" />
           <img data-src="images/lodge-bar-counter.jpg" alt="Live-edge timber bar with wine fridge and coffee station" width="1280" height="720" decoding="async" />
           <img data-src="images/lodge-suite.jpg" alt="Lodge suite with timber slat divider, thatch and custom joinery" width="1280" height="885" decoding="async" />
@@ -229,6 +230,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260912f"></script>
+  <script src="js/main.js?v=20260915a"></script>
 </body>
 </html>

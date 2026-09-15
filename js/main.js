@@ -50,6 +50,11 @@
       dotsWrap.children[index]?.classList.add("is-active");
     };
 
+    const slidesRoot = document.querySelector(".hero-slides");
+    const armFade = () => slidesRoot?.classList.add("ready");
+    if (slides[0].complete && slides[0].naturalWidth) armFade();
+    else slides[0].addEventListener("load", armFade, { once: true });
+
     const prefetchNext = () => loadSlide(slides[1]);
     if (document.readyState === "complete") prefetchNext();
     else window.addEventListener("load", prefetchNext, { once: true });
@@ -178,29 +183,33 @@
     return rect.bottom > 0 && rect.top < vh;
   };
 
-  reveals.forEach((el) => {
-    if (inView(el)) el.classList.add("in");
-  });
-  document.documentElement.classList.add("js");
+  const startReveals = () => {
+    reveals.forEach((el) => {
+      if (inView(el)) el.classList.add("in");
+    });
+    document.documentElement.classList.add("js");
 
-  if (!reveals.length || !("IntersectionObserver" in window)) {
-    reveals.forEach((el) => el.classList.add("in"));
-    return;
-  }
+    if (!reveals.length || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => el.classList.add("in"));
+      return;
+    }
 
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
-  );
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
+    );
 
-  reveals.forEach((el) => {
-    if (!el.classList.contains("in")) io.observe(el);
-  });
+    reveals.forEach((el) => {
+      if (!el.classList.contains("in")) io.observe(el);
+    });
+  };
+
+  requestAnimationFrame(() => requestAnimationFrame(startReveals));
 })();
